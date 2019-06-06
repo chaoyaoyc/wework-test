@@ -2,10 +2,13 @@ Build:
     mvn clean package
 
 Run:
-    java -jar WebSearch.jar [regex] [input_file_path] [output_file_path]
+    java -jar WebSearch.jar
+    Read urls.txt from and write output into the current directory
 
+    OR
+    java -jar WebSearch.jar [regex] [input_file_path] [output_file_path]
     example:
-    java -jar WebSearch.jar facebook /Users/chaoyao/Downloads/urls.txt /Users/chaoyao/Downloads/output.txt
+    java -jar WebSearch.jar facebook /Users/chaoyao/Downloads/urls.txt /Users/chaoyao/Downloads/results.txt
 
 Notes:
  1. Search text in the downloaded content of each web page including html tags and scripts. That is,
@@ -16,7 +19,7 @@ Notes:
  The second field could be true, false or error message from IOException.
  3. Known issues (not fixed)
   1) URLs without "www." may not work.
-  2) Some websites have certificate problem.
+  2) Some websites have certificate problems.
 
 
 
