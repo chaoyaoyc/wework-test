@@ -7,8 +7,8 @@ import java.util.regex.Pattern;
  * Supports searching a regex in the web content.
  */
 public class WebSearcher {
-    private Pattern pattern;
-    private HttpRetriever httpRetriever;
+    private final Pattern pattern;
+    private final HttpRetriever httpRetriever;
 
     /**
      * Creates with regex and the default HttpRetriever
