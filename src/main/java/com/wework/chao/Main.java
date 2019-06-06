@@ -3,6 +3,7 @@ package com.wework.chao;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
     /**
@@ -11,13 +12,25 @@ public class Main {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
-        if (args.length < 3) {
-            System.out.println("Usage: [REGEX] [INPUT FILE PATH] [OUT PUT FILE PATH]");
-            return;
+        String term;
+        String inputFile;
+        String outputFile;
+        if (args.length == 0) {
+            System.out.println("Possible Usage: [REGEX] [INPUT FILE PATH] [OUTPUT FILE PATH]");
+            System.out.println("No arguments. Read urls.txt from and write output into the current directory");
+            inputFile = "urls.txt";
+            outputFile = "results.txt";
+            System.out.println("Input search term:");
+            Scanner scanner = new Scanner(System.in);
+            term = scanner.nextLine();
+        } else {
+            term = args[0];
+            inputFile = args[1];
+            outputFile = args[2];
         }
-        try (FileInputStream input = new FileInputStream(args[1]);
-             FileOutputStream output = new FileOutputStream(args[2], true)) {
-            WebSearchExecutor executor = new WebSearchExecutor(new WebSearcher(args[0]), input, output);
+        try (FileInputStream input = new FileInputStream(inputFile);
+             FileOutputStream output = new FileOutputStream(outputFile, true)) {
+            WebSearchExecutor executor = new WebSearchExecutor(new WebSearcher(term), input, output);
             executor.run();
         }
     }

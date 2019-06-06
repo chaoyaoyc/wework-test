@@ -24,4 +24,14 @@ public class ApacheHttpRetrieverTest {
         String content = retriever.get("twitter.com");
         assertTrue(content.contains("twitter"));
     }
+
+    @Test
+    public void testIgnoreCertificate() throws Exception {
+        assertTrue(retriever.get("webeden.co.uk").contains("twitter"));
+    }
+
+    @Test
+    public void testWWW() throws Exception {
+        assertTrue(retriever.get("fda.gov").contains("fda"));
+    }
 }
