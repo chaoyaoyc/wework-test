@@ -23,6 +23,5 @@ public class ApacheHttpRetrieverTest {
     public void testGetDirect() throws Exception {
         String content = retriever.get("twitter.com");
         assertTrue(content.contains("twitter"));
-        assertTrue(retriever.get("webeden.co.uk").contains("twitter"));
     }
 }
