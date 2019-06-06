@@ -86,7 +86,7 @@ public class WebSearchExecutorTest {
 
         // Checks the results
         InputStream inputStream = new ByteArrayInputStream(INPUT_URLS.getBytes());
-        final int MAX_JOBS = 1;
+        final int MAX_JOBS = 3;
         WebSearchExecutor executor = new WebSearchExecutor(webSearcher, inputStream, outputStream, MAX_JOBS);
         try {
             executor.run();
