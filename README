@@ -14,6 +14,10 @@ Notes:
  2. The output is with the format like
  google.com/,true
  The second field could be true, false or error message from IOException.
+ 3. Known issues (not fixed)
+  1) URLs without "www." may not work.
+  2) Some websites have certificate problem.
+
 
 
 
