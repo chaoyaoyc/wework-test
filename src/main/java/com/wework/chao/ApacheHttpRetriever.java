@@ -94,7 +94,7 @@ public class ApacheHttpRetriever implements HttpRetriever {
             httpUrl = HTTP_PREFIX + WWW_PREFIX + url;
             location = getLocation(httpUrl);
         }
-        HttpClient client = getCloseableHttpClient();
+        CloseableHttpClient client = getCloseableHttpClient();
         try {
             HttpGet request = new HttpGet(location);
             request.addHeader("User-Agent", "Apache HTTPClient");
@@ -102,6 +102,7 @@ public class ApacheHttpRetriever implements HttpRetriever {
             HttpEntity entity = response.getEntity();
             return EntityUtils.toString(entity);
         } finally {
+            client.close();
         }
     }
 }
